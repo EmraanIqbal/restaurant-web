@@ -12,10 +12,17 @@ const initialState: ReservationsState = {
 export const reservationsSlice = createSlice({
   name: "reservations",
   initialState,
-  reducers: {},
+  reducers: {
+    addReservation: (state, action: PayloadAction<string>) => {
+      state.value.push(action.payload);
+    },
+    removeReservation: (state, action: PayloadAction<number>) => {
+      state.value.splice(action.payload, 1);
+    },
+  },
 });
 
 // Action creators are generated for each case reducer function
-// export const {} = reservationsSlice.actions;
+export const { addReservation, removeReservation } = reservationsSlice.actions;
 
 export default reservationsSlice;
