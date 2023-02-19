@@ -50,7 +50,7 @@ function App() {
         <div className="customer-food-container">
           {
             customerList?.map((customer, index) => (
-              <CustomerCard name={customer.name} index={customer.id} food={customer.food} />
+              <CustomerCard name={customer.name} id={customer.id} food={customer.food} />
             ))
           }
         </div>

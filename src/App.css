@@ -58,6 +58,8 @@
 
 .customer-food {
   display: flex;
+  font-weight: 800;
+  font-size: 18px;
 }
 
 .customer-food-container p {
@@ -88,4 +90,5 @@
   width: 100%;
   margin-top: 1rem;
   justify-content: space-between;
+ 
 }

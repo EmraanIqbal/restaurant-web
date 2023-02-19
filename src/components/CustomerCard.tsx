@@ -5,27 +5,24 @@ import { removeReservation } from "../features/reservationSlice";
 
 interface CustomerCardProps {
     name: string;
-    index: string;
+    id: string;
     food: string[]
 }
 
-const CustomerCard = ({ name, index, food }: CustomerCardProps) => {
+const CustomerCard = ({ name, id, food }: CustomerCardProps) => {
     const dispatch = useDispatch();
     const [menu, setMenu] = useState("");
 
     const handleAddCustomerMenu = () => {
-        if (!menu) return
-        // dispatch(addCustomerFood({food: [menu]}))
+        if (!menu) return;
+        dispatch(addCustomerFood({ food: menu, id }))
         setMenu("")
     }
 
-    const handleRemove = () => {
-        // dispatch(removeCustomerMenu(index));
-    };
     return (
         <>
             <div className="customer-food-card-container">
-                <p>{name}</p>
+                <h3 style={{ fontWeight: "600", textTransform: "uppercase" }}>{name}</h3>
                 <div className="customer-foods-container">
 
 
