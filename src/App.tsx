@@ -2,19 +2,24 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import "./App.css";
 import { RootState } from "./app/store";
+import CustomerCard from "./components/CustomerCard";
 import ReservationCard from "./components/ReservationCard";
+import { addCustomerMenu } from "./features/customerSlice";
 import { addReservation } from "./features/reservationSlice";
 
 function App() {
   const dispatch = useDispatch()
   const [reservation, setReservation] = useState("");
   const reservationList = useSelector((state: RootState) => state?.reservations.value)
+  const customerList = useSelector((state: RootState) => state?.customer.value)
 
   const handleAddReserver = () => {
     if (!reservation) return
     dispatch(addReservation(reservation))
     setReservation("")
   }
+
+
   return (
     <div className="App">
       <div className="container">
@@ -43,16 +48,11 @@ function App() {
           </div>
         </div>
         <div className="customer-food-container">
-          <div className="customer-food-card-container">
-            <p>Selena Gomez</p>
-            <div className="customer-foods-container">
-              <div className="customer-food"></div>
-              <div className="customer-food-input-container">
-                <input />
-                <button>Add</button>
-              </div>
-            </div>
-          </div>
+          {
+            customerList?.map((customer, index) => (
+              <CustomerCard name={customer.name} index={customer.id} food={customer.food} />
+            ))
+          }
         </div>
       </div>
     </div>
