@@ -23,7 +23,7 @@ const CustomerCard = ({ name, id, food }: CustomerCardProps) => {
         <>
             <div className="customer-food-card-container">
                 <h3 style={{ fontWeight: "600", textTransform: "uppercase" }}>{name}</h3>
-                <div className="customer-foods-container">
+                <div className="customer-foods-container food-items">
 
 
                     <div className="customer-food">
